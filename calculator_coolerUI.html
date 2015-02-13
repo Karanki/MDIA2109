@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>template</title>
+    <meta charset="utf-8"/>   
+</head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+  </script>
+
+  <script>
+  $(document).ready(
+    function(){
+      var num1 = 0;
+      var num2 = 0;
+      var total = 0;
+
+      var showNumber = function(){
+          $("#display").html("<h1>" +total+"<h1>");
+          $("#display").animate(
+          {
+            "bottom":"100px"
+          }
+        );
+      }
+
+      var getNumber = function(){
+          num1 = parseInt($("#num1").val());
+          num2 = parseInt($("#num2").val());
+
+      };
+
+      var add = function(){
+          getNumber();
+          total = num1 + num2;
+      }
+
+      var subtract = function(){
+          getNumber();
+          total = num1 - num2;
+      }
+
+      var multiply = function(){
+          getNumber();
+          total = num1 * num2;
+      }
+
+      var divide = function(){
+          getNumber();
+          total = num1 / num2;
+      }
+
+      $("#topLeft").click(
+        function () {
+         add();
+         showNumber();
+        }
+      );
+
+      $("#topRight").click(
+        function () {
+         subtract();
+         showNumber();
+        }
+      );
+
+      $("#botLeft").click(
+        function () {
+         multiply();
+         showNumber();
+        }
+      );
+
+      $("#botRight").click(
+        function () {
+         divide();
+         showNumber();
+        }
+      );
+
+    }
+
+
+  );  
+
+
+  </script>
+
+  <style type="text/css">
+
+    #topLeft {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 50%;
+      background: #c44;
+    }
+
+    #topRight {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 50%;
+      height: 50%;
+      background: #c42;
+    }
+
+    #botLeft {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 50%;
+      background: #dd2;
+    }
+
+    #botRight {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      height: 50%;
+      background: #ee4;
+    }
+
+    #numbers {
+      position: fixed;
+      top: 40%;
+      left: 40%;
+      width: 200px;
+      z-index: 1;
+
+    }
+
+    #numbers input {
+      height: 50px;
+      margin: 5%;
+      padding: 2.5%;
+
+
+    }
+  
+    #display {
+      position: fixed;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      font-size: 16px;
+      background-color: #d89;
+      z-index: 1;
+
+
+    }
+  </style>
+  <body>
+    <div id="numbers">   
+      <input id="num1" type="text" placeholder="the 1st #"/>
+      <input id="num2" type="text" placeholder="the 2nd #"/> 
+    </div>
+
+    <div id="topLeft">
+    </div>
+    
+    <div id="topRight">
+    </div>
+    
+    <div id="botLeft">
+    </div>
+    
+    <div id="botRight">
+    </div>
+    
+
+    <div id="display">
+    </div>
+    
+
+  </body>
+</html>
